@@ -1,0 +1,70 @@
+architecture:
+  version: 0.3
+  local:
+  - name: system_arch.chip.PE[0..15].scratchpad
+    class: smart_storage
+    attributes:
+      depth: 18
+      latency: 1ns
+      meshX: 2
+      meshY: 8
+      technology: 45nm
+      width: 16
+  - name: system_arch.chip.PE[0..15].mac
+    class: mac_compute
+    attributes:
+      datawidth: 16
+      latency: 1ns
+      meshX: 2
+      meshY: 8
+      num_pipeline_stages: 2
+      num_pipline_stages: 2
+      technology: 45nm
+  - name: system_arch.chip.PE[0..15].weights_reg
+    class: reg_storage
+    attributes:
+      depth: 1
+      latency: 1ns
+      meshX: 2
+      meshY: 8
+      technology: 45nm
+      width: 16
+  - name: system_arch.chip.PE[0..15].input_activation_reg
+    class: reg_storage
+    attributes:
+      depth: 1
+      latency: 1ns
+      meshX: 2
+      meshY: 8
+      technology: 45nm
+      width: 16
+  - name: system_arch.chip.PE[0..15].output_activation_reg
+    class: reg_storage
+    attributes:
+      depth: 1
+      latency: 1ns
+      meshX: 2
+      meshY: 8
+      technology: 45nm
+      width: 16
+  - name: system_arch.chip.global_buffer
+    class: SRAM
+    attributes:
+      datawidth: 16
+      depth: 512
+      latency: 1ns
+      n_banks: 1
+      n_rd_ports: 0
+      n_rdwr_ports: 2
+      n_wr_ports: 0
+      technology: 45nm
+      width: 16
+  - name: system_arch.DRAM
+    class: DRAM
+    attributes:
+      block-size: 4
+      datawidth: 16
+      latency: 1ns
+      technology: 45nm
+      type: LPDDR4
+      width: 64

@@ -1,0 +1,21 @@
+
+DRAM [ Inputs:1764 Outputs:800 ] 
+--------------------------------
+| for Q in [0:5)
+
+global_buffer [ Inputs:756 Outputs:160 ] 
+----------------------------------------
+|   for P in [0:5)
+
+dummy_buffer [ ] 
+----------------
+|     for N in [0:2)
+|       for M in [0:16) (Spatial-Y)
+|         for C in [0:18) (Spatial-X)
+|           for S in [0:3) (Spatial-X)
+|             for R in [0:3) (Spatial-X)
+
+scratchpad [ Weights:1 ] 
+------------------------
+|               for Q in [0:1)
+

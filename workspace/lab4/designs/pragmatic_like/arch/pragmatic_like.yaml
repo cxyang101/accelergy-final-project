@@ -1,0 +1,85 @@
+architecture:
+  # ============================================================
+  # Architecture Description
+  # ============================================================
+  version: 0.3
+  subtree:
+    - name: system
+      local:
+        - name: DRAM
+          class: DRAM
+          attributes: # CHANGE
+            width: 64
+            block-size: 4
+            word-bits: 16
+      subtree:
+        - name: pragmatic
+          attributes:
+            technology: 65nm
+          local:
+            - name: neuron_memory # NM - 4 MB
+              class: eDRAM
+              attributes:
+                technology: technology
+                width: 2048
+                depth: 1953
+                n_rdwr_ports: 1
+          subtree:
+            - name: small_buffers
+              attributes:
+                technology: technology
+              local: 
+                - name: NB_in # 
+                  class: SRAM
+                  attributes:
+                    technology: technology
+                    width: 8
+                    depth: 16
+                    n_rdwr_ports: 0
+                    n_rd_ports: 1
+                    n_wr_ports: 1
+                    n_banks: 64
+                - name: synapse_buffer # SB - 2MB for 16 tiles, 32MB total
+                  class: eDRAM
+                  attributes:
+                    technology: technology
+                    depth: 1024
+                    width: 32768
+                    n_banks: 64
+                    n_wr_ports: 1 
+                    n_rd_ports: 1
+              subtree:
+                - name: PIP[0..255]
+                  local:
+                    - name: synapse_registers
+                      class: regfile
+                      attributes:
+                        width: 2 # holds 16-bit value
+                        depth: 16
+                        meshX: 16
+                    - name: adders[0..30]
+                      class: intadder
+                      attributes:
+                        datawidth: 19 # should be 16+2^L-1; usually L=2
+                        num_pipeline_stages: 4 
+                        meshX : 16
+                    - name: second_shift
+                      class: shift_and_add
+                      attributes:
+                        technology: technology
+                        datawidth: 13 # 15 - L = 13; L=2
+                  subtree:
+                    - name: outputs
+                      attributes:
+                        technology: 65nm
+                      local:
+                        - name: NB_out
+                          class: SRAM
+                          attributes:
+                            technology: technology
+                            width: 2 #bytes
+                            depth: 16
+                            n_rdwr_ports: 0
+                            n_rd_ports: 1
+                            n_wr_ports: 1
+                            n_banks: 1

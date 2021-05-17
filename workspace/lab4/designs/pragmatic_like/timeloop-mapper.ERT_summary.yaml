@@ -1,0 +1,25 @@
+ERT_summary:
+  version: 0.3
+  table_summary:
+  - name: system.pragmatic.neuron_memory
+    actions:
+    - name: read
+      energy: 1
+    - name: write
+      energy: 1
+    - name: idle
+      energy: 0
+    primitive_estimation(s):
+    - name: system.pragmatic.neuron_memory
+      estimator: dummy_table
+  - name: system.DRAM
+    actions:
+    - name: read
+      energy: 512
+    - name: write
+      energy: 512
+    - name: idle
+      energy: 0
+    primitive_estimation(s):
+    - name: system.DRAM
+      estimator: Cacti

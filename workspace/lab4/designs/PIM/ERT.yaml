@@ -1,0 +1,114 @@
+ERT:
+  version: 0.3
+  tables:
+  - name: system_arch.chip.global_buffer
+    actions:
+    - name: read
+      arguments:
+        address_delta: 0
+        data_delta: 0
+      energy: 0.0
+    - name: read
+      arguments:
+        address_delta: 0
+        data_delta: 1
+      energy: 0.896
+    - name: read
+      arguments:
+        address_delta: 1
+        data_delta: 0
+      energy: 0.384
+    - name: read
+      arguments:
+        address_delta: 1
+        data_delta: 1
+      energy: 1.03
+    - name: write
+      arguments:
+        address_delta: 0
+        data_delta: 0
+      energy: 0.0
+    - name: write
+      arguments:
+        address_delta: 0
+        data_delta: 1
+      energy: 0.8
+    - name: write
+      arguments:
+        address_delta: 1
+        data_delta: 0
+      energy: 0.343
+    - name: write
+      arguments:
+        address_delta: 1
+        data_delta: 1
+      energy: 1.03
+    - name: idle
+      arguments: null
+      energy: 0.0
+  - name: system_arch.DRAM
+    actions:
+    - name: read
+      arguments: null
+      energy: 512
+    - name: write
+      arguments: null
+      energy: 512
+    - name: idle
+      arguments: null
+      energy: 0
+  - name: system_arch.chip.PE[0..63].scratchpad
+    actions:
+    - name: read
+      arguments: null
+      energy: 0
+  - name: system_arch.chip.PE[0..63].mac
+    actions:
+    - name: compute
+      arguments: null
+      energy: 0.256
+  - name: system_arch.chip.dummy_buffer
+    actions:
+    - name: access
+      arguments: null
+      energy: 0
+  - name: system_arch.chip.D2A_NoC
+    actions:
+    - name: transfer_Inputs
+      arguments:
+        num_destinations: 1
+      energy: 0.384
+    - name: transfer_Inputs
+      arguments:
+        num_destinations: 2
+      energy: 0.384
+    - name: transfer_Inputs
+      arguments:
+        num_destinations: 3
+      energy: 0.384
+    - name: transfer_Inputs
+      arguments:
+        num_destinations: 4
+      energy: 0.384
+    - name: transfer_Inputs
+      arguments:
+        num_destinations: 5
+      energy: 0.384
+    - name: transfer_Inputs
+      arguments:
+        num_destinations: 6
+      energy: 0.384
+    - name: transfer_Inputs
+      arguments:
+        num_destinations: 7
+      energy: 0.384
+    - name: transfer_Inputs
+      arguments:
+        num_destinations: 8
+      energy: 0.384
+  - name: system_arch.chip.A2D_NoC
+    actions:
+    - name: transfer_Outputs
+      arguments:
+        num_destinations: 1
+      energy: 170.752

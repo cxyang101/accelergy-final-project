@@ -1,0 +1,7 @@
+ART:
+  version: 0.3
+  tables:
+  - name: system.pragmatic.neuron_memory
+    area: 1
+  - name: system.DRAM
+    area: 1

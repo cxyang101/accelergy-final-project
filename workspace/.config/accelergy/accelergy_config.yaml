@@ -1,0 +1,10 @@
+estimator_plug_ins:
+- /usr/local/share/accelergy/estimation_plug_ins
+primitive_components:
+- /usr/local/share/accelergy/primitive_component_libs
+table_plug_ins:
+  roots:
+  - /usr/local/share/accelergy/estimation_plug_ins/accelergy-table-based-plug-ins/set_of_table_templates
+  - /home/workspace/lab4/PIM_estimation_tables
+  - /home/workspace/workspace/lab4/PIM_estimation_tables
+version: 0.3

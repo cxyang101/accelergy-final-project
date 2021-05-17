@@ -1,0 +1,67 @@
+#
+# The following constraints are limitations of the hardware architecture and dataflow
+#
+
+architecture_constraints:
+  targets:
+  # certain buffer only stores certain datatypes
+  - target: neuron_memory
+    type: bypass
+    bypass: [Outputs, Weights]
+    keep: [Inputs]
+  - target: NB_in
+    type: bypass
+    bypass: [Outputs, Weights]
+    keep: [Inputs]
+  - target: synapse_buffer
+    type: bypass
+    bypass: [Inputs, Outputs]
+    keep: [Weights]
+  - target: synapse_registers
+    type: bypass
+    bypass: [Inputs, Outputs]
+    keep: [Weights]
+  - target: NB_out
+    type: bypass
+    bypass: [Inputs, Weights]
+    keep: [Outputs]
+
+  # Spatial (I think these are correct)
+  - target: NB_in
+    type: spatial
+    split: 16 # ??
+    permutation: NCPQ NPQ #unclear
+    factors: N=1 M=1 C=16 P=1 Q=1 R=1 S=1
+  - target: synapse_buffer
+    type: spatial
+    split: 16 # ?? 
+    permutation: CRSM NPQ
+    factors: N=1 M=1 C=16 P=1 Q=1 R=16 S=1
+  - target: PIP
+    type: spatial
+    split: 16 # ?? 
+    permutation: NCPRSQM
+    factors: N=1 M=1 C=16 P=1 Q=1 R=1 S=1 # each PIP receives one neuron (as 16 oneffsets) and 16 synapses
+  - target: NB_out
+    type: spatial
+    split: 16 # ?? 
+    permutation: NCPRSQM
+    factors: N=1 M=1 C=16 P=16 Q=1 R=1 S=1
+  
+  # # Temporal
+  - target: neuron_buffer # no temporal restrictions
+    type: temporal
+    permutation: PQCRSNM
+    factors: N=0 M=0 C=0 R=0 S=0 P=0 Q=0
+  - target: NB_in # one brick at time
+    type: temporal
+    permutation: PQCRSMN
+    factors: N=1 M=1 C=1 R=1 S=1 P=1 Q=1
+  - target: synapse_buffer
+    type: temporal # one pallet at a time
+    permutation: PQCRSNM
+    factors: N=1 M=1 C=1 R=1 S=1 P=1 Q=1
+  - target: PE # one neuron and synapse brick at a time
+    type: temporal
+    permutation: PQCRSNM
+    factors: N=1 M=1 C=1 R=1 S=1 P=1 Q=1

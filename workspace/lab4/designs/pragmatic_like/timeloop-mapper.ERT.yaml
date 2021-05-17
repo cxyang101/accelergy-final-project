@@ -1,0 +1,25 @@
+ERT:
+  version: 0.3
+  tables:
+  - name: system.pragmatic.neuron_memory
+    actions:
+    - name: read
+      arguments: null
+      energy: 1
+    - name: write
+      arguments: null
+      energy: 1
+    - name: idle
+      arguments: null
+      energy: 0
+  - name: system.DRAM
+    actions:
+    - name: read
+      arguments: null
+      energy: 512
+    - name: write
+      arguments: null
+      energy: 512
+    - name: idle
+      arguments: null
+      energy: 0

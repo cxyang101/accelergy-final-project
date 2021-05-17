@@ -1,0 +1,13 @@
+#
+# The following constraints are not limitations of the hardware architecture and dataflow,
+# but help limit the search space to speed up search
+#
+
+mapspace_constraints:
+  targets:
+    # intuitive optimization to reduce map space size
+    # trying weight-stationary for now (unsure which one to use)
+    - target: DRAM
+      type: temporal
+      permutation: CMRSPQN
+    

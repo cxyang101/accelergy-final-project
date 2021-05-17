@@ -1,0 +1,47 @@
+architecture:
+  version: 0.3
+  local:
+  - name: single_pe_arch.chip.PE.scratchpad
+    class: smart_storage
+    attributes:
+      depth: 18
+      latency: 1ns
+      technology: 45nm
+      width: 16
+  - name: single_pe_arch.chip.PE.mac
+    class: mac_compute
+    attributes:
+      datawidth: 16
+      latency: 1ns
+      num_pipeline_stages: 2
+      technology: 45nm
+  - name: single_pe_arch.chip.PE.weight_reg
+    class: reg_storage
+    attributes:
+      depth: 1
+      latency: 1ns
+      technology: 45nm
+      width: 16
+  - name: single_pe_arch.chip.PE.input_activation_reg
+    class: reg_storage
+    attributes:
+      depth: 1
+      latency: 1ns
+      technology: 45nm
+      width: 16
+  - name: single_pe_arch.chip.PE.output_activation_reg
+    class: reg_storage
+    attributes:
+      depth: 1
+      latency: 1ns
+      technology: 45nm
+      width: 16
+  - name: single_pe_arch.DRAM
+    class: DRAM
+    attributes:
+      block-size: 4
+      datawidth: 16
+      latency: 1ns
+      technology: 45nm
+      type: LPDDR4
+      width: 64

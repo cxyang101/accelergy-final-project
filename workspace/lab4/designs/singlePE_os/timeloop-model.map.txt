@@ -1,0 +1,27 @@
+
+DRAM [ Weights:18432 Inputs:3136 Outputs:3200 ] 
+-----------------------------------------------
+| for N in [0:2)
+|   for M in [0:32)
+|     for C in [0:32)
+|       for P in [0:5)
+
+scratchpad [ Outputs:10 ] 
+-------------------------
+|         for Q in [0:5)
+|           for M in [0:2)
+|             for S in [0:3)
+|               for R in [0:3)
+
+weight_reg [ Weights:1 ] 
+------------------------
+|                 for Q in [0:1)
+
+input_activation_reg [ Inputs:1 ] 
+---------------------------------
+|                   for Q in [0:1)
+
+output_activation_reg [ Outputs:1 ] 
+-----------------------------------
+|                     for Q in [0:1)
+

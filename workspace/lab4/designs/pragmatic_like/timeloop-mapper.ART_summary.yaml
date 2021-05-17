@@ -1,0 +1,9 @@
+ART_summary:
+  version: 0.3
+  table_summary:
+  - name: system.pragmatic.neuron_memory
+    area: 1
+    primitive_estimations: dummy_table
+  - name: system.DRAM
+    area: 1
+    primitive_estimations: dummy_table

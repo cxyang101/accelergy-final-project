@@ -1,0 +1,103 @@
+ERT_summary:
+  version: 0.3
+  table_summary:
+  - name: single_pe_arch.DRAM
+    actions:
+    - name: read
+      energy: 512
+    - name: write
+      energy: 512
+    - name: idle
+      energy: 0
+    primitive_estimation(s):
+    - single_pe_arch.DRAM:
+        estimator: Cacti
+  - name: single_pe_arch.chip.PE.scratchpad
+    actions:
+    - name: read
+      energy: 0.226
+    primitive_estimation(s):
+    - action_name: read
+      arguments: null
+      energy: 0.226
+      subaction_estimations:
+      - subcomponent_name: storage
+        subaction_name: read
+        arguments:
+          address_delta: 1
+          data_delta: 1
+        energy: 0.226
+        action_share: 1
+        interpreted_energy: 0.226
+        percentage: 100.0%
+        estimator: Aladdin_table
+  - name: single_pe_arch.chip.PE.mac
+    actions:
+    - name: compute
+      energy: 3.275
+    primitive_estimation(s):
+    - action_name: compute
+      arguments: null
+      energy: 3.275
+      subaction_estimations:
+      - subcomponent_name: compute
+        subaction_name: read
+        arguments:
+          address_delta: 1
+          data_delta: 1
+        energy: 3.275
+        action_share: 1
+        interpreted_energy: 3.275
+        percentage: 100.0%
+        estimator: Aladdin_table
+  - name: single_pe_arch.chip.PE.weight_reg
+    actions:
+    - name: access
+      energy: 0.009
+    primitive_estimation(s):
+    - action_name: access
+      arguments: null
+      energy: 0.009
+      subaction_estimations:
+      - subcomponent_name: storage
+        subaction_name: access
+        arguments: null
+        energy: 0.009
+        action_share: 1
+        interpreted_energy: 0.009
+        percentage: 100.0%
+        estimator: Aladdin_table
+  - name: single_pe_arch.chip.PE.input_activation_reg
+    actions:
+    - name: access
+      energy: 0.009
+    primitive_estimation(s):
+    - action_name: access
+      arguments: null
+      energy: 0.009
+      subaction_estimations:
+      - subcomponent_name: storage
+        subaction_name: access
+        arguments: null
+        energy: 0.009
+        action_share: 1
+        interpreted_energy: 0.009
+        percentage: 100.0%
+        estimator: Aladdin_table
+  - name: single_pe_arch.chip.PE.output_activation_reg
+    actions:
+    - name: access
+      energy: 0.009
+    primitive_estimation(s):
+    - action_name: access
+      arguments: null
+      energy: 0.009
+      subaction_estimations:
+      - subcomponent_name: storage
+        subaction_name: access
+        arguments: null
+        energy: 0.009
+        action_share: 1
+        interpreted_energy: 0.009
+        percentage: 100.0%
+        estimator: Aladdin_table

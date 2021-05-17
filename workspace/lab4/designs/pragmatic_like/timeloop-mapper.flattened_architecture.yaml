@@ -1,0 +1,20 @@
+architecture:
+  version: 0.3
+  local:
+  - name: system.pragmatic.neuron_memory
+    class: eDRAM
+    attributes:
+      depth: 1953
+      latency: 1ns
+      n_rdwr_ports: 1
+      nbanks: 1
+      technology: technology
+      width: 2048
+  - name: system.DRAM
+    class: DRAM
+    attributes:
+      block-size: 4
+      technology: 65nm
+      type: LPDDR4
+      width: 64
+      word-bits: 16
